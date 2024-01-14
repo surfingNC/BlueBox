@@ -1,24 +1,33 @@
-import { useState } from "react";
+import { Children, useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
-import ImageButton from "./components/ImageButton";
+import Gallery from "./components/Gallery";
 
-function App() {
-  const [alertVisible, setAlertVisibility] = useState(false);
+const App: React.FC = () => {
+  const [alertVisible, setAlertVisible] = useState(false);
+  const [alertVisible2, setAlertVisible2] = useState(false);
+
+  const handleAlertClose = () => {
+    setAlertVisible(false);
+  };
 
   return (
     <div>
-      <ImageButton></ImageButton>
+      <Gallery
+        alertMessage="Clicked on the image!"
+        setAlertVisible={setAlertVisible2}
+        alertVisible={alertVisible2}
+      />
       {alertVisible && (
-        <Alert onClose={() => setAlertVisibility(false)}>
-          One day, I will make money programming
+        <Alert onClose={() => setAlertVisible(false)}>
+          One day I will make money programming!
         </Alert>
       )}
-      <Button color="primary" onClick={() => setAlertVisibility(true)}>
+      <Button color="primary" onClick={() => setAlertVisible(true)}>
         My Button
       </Button>
     </div>
   );
-}
+};
 
 export default App;
