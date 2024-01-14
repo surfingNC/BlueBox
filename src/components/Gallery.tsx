@@ -28,7 +28,7 @@ const Gallery: React.FC<GalleryProps> = ({
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
       <img
         src={img1}
         alt=""
