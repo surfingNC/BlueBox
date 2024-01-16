@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import Gallery from "./components/Gallery";
+import ListGroup from "./components/ListGroup";
 
 const App: React.FC = () => {
+  const listItems = ["Item 1", "Item 2", "Item 3"];
+  const listHeading = "List Group";
+
+  const handleListItemSelect = (item: string) => {
+    console.log(`Selected item: ${item}`);
+  };
+
   const [alertVisible, setAlertVisible] = useState(false);
   const [imageAlertVisible, setImageAlertVisible] = useState(false);
   const [loginAlertVisible, setLoginAlertVisible] = useState(false);
@@ -77,6 +85,12 @@ const App: React.FC = () => {
           Create Account button clicked.
         </Alert>
       )}
+
+      <ListGroup
+        items={listItems}
+        heading={listHeading}
+        onSelectItem={handleListItemSelect}
+      />
     </div>
   );
 };

@@ -21,6 +21,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
                 : "list-group-item"
             }
             key={item}
+            style={{ cursor: "pointer" }}
             onClick={() => {
               setSelectedIndex(index);
               onSelectItem(item);
